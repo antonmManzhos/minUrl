@@ -22,11 +22,7 @@ class FindLink
 
             $endDate->add(new DateInterval("P" . $link->life_minutes * 60 . "M")); // adds 674165 secs
             $currentDate = new DateTime("now");
-            if ($endDate > $currentDate) {
-                return true;
-            } else {
-                return false;
-            }
+            return $endDate > $currentDate;
         } else {
             return true;
         }
