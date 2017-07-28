@@ -2,10 +2,10 @@
 
 namespace Helpers;
 
-const DB_SERVER = "46.46.73.228";
-const DB_USER = "root";
+const DB_SERVER = "";
+const DB_USER = "";
 const DB_PASSWORD = "";
-const DB_BASE = "MinUrl";
+const DB_BASE = "";
 class Connection
 {
     public static function getConnection()
