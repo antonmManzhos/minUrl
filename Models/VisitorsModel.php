@@ -34,7 +34,6 @@ class VisitorsModel
     {
         require_once __DIR__ . '/../Helpers/getConnection.php';
         $conn = Connection::getConnection();
-        $id_url = 1;
         if ($conn) {
             $sql = "SELECT DISTINCT Country from `visitors` WHERE id_url = {$id_url}";
             $conn->query($sql);

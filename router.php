@@ -7,15 +7,11 @@
  */
 if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != null) {
     $route = $_SERVER['REQUEST_URI'];
+    require_once('Controllers\IndexController.php');
     switch ($route) {
-        case strpos($route, 'IndexController') > 0:
-            require_once('Controllers\IndexController.php');
+        case strpos($route, 'IndexController/saveLink') > 0:
             $indexController = new \Controllers\IndexController();
-            if (strpos($route, 'saveLink')) {
-                $indexController->saveLink();
-            } else {
-                $indexController->index();
-            }
+            $indexController->saveLink();
             break;
         case strpos($route, '/link'):
             require_once('Controllers\LinkController.php');
@@ -34,12 +30,12 @@ if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != null) {
             break;
         default:
             require_once('Helpers\FindLink.php');
-            require_once('Controllers\IndexController.php');
             $indexController = new Controllers\IndexController();
             if (\Helpers\FindLink::checkLink($route)) {
                 require_once('Helpers\Visitors.php');
                 \Helpers\Visitors::getLocationIpAddress();
                 $indexController->redirectToOriginalLink();
+                break;
             }
             $indexController->index();
             break;

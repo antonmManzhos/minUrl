@@ -30,7 +30,9 @@ class LinkController
                 Models\LinksModel::updateLink($oldLink->id, $newLink);
                 $_SESSION['shortLink'] = $newLink;
             }
-            header("Location: /router.php/LinkController/update");
+            $_SESSION['linkUpdated'] = true;
+            $url = "Location: http://" . $_SERVER['HTTP_HOST'] . "/link";
+            header($url);
         }
     }
 }

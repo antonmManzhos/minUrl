@@ -30,7 +30,7 @@ function js_array($statistic)
         ]);
 
         var options = {
-            title: 'My Daily Activities',
+            title: 'Countries',
             is3D: true,
         };
 

@@ -26,8 +26,8 @@ class IndexController
             require_once __DIR__ . '/../Helpers/generateShortUrl.php';
             $shortLink = Helpers\ShortUrl::generateRandomString();
             require_once __DIR__ . '/../Models/LinksModel.php';
-            Models\LinksModel::saveLink($fullLink, $shortLink, $life_minutes);
             session_start();
+            $_SESSION['id'] = Models\LinksModel::saveLink($fullLink, $shortLink, $life_minutes);
             $_SESSION['shortLink'] = $shortLink;
             $url = "Location: http://" . $_SERVER['HTTP_HOST'] . "/link";
             header($url);
@@ -36,5 +36,6 @@ class IndexController
     public function redirectToOriginalLink(){
         session_start();
         header("Location: http://" . $_SESSION['full_url']);
+        die();
     }
 }

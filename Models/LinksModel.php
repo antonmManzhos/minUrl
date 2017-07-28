@@ -25,6 +25,7 @@ class LinksModel
         if ($conn) {
             $sql = "INSERT INTO `links` (`full_url`, `short_url`, `life_minutes`, `created_at`, `updated_at`) VALUES ('{$fullLink}', '{$shortLink}', {$life_minutes}, NULL, NULL)";
             $conn->query($sql);
+            return $conn->insert_id;
         }
     }
 
