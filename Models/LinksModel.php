@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 26.07.2017
- * Time: 21:45
- */
 
 namespace Models;
 
@@ -23,7 +17,7 @@ class LinksModel
         require_once __DIR__ . '/../Helpers/getConnection.php';
         $conn = Connection::getConnection();
         if ($conn) {
-            $sql = "INSERT INTO `links` (`full_url`, `short_url`, `life_minutes`, `created_at`, `updated_at`) VALUES ('{$fullLink}', '{$shortLink}', {$life_minutes}, NULL, NULL)";
+            $sql = "INSERT INTO `links` (`full_url`, `short_url`, `life_minutes`) VALUES ('{$fullLink}', '{$shortLink}', {$life_minutes})";
             $conn->query($sql);
             return $conn->insert_id;
         }
@@ -34,7 +28,7 @@ class LinksModel
         require_once __DIR__ . '/../Helpers/getConnection.php';
         $conn = Connection::getConnection();
         if ($conn) {
-            $sql = "SELECT * FROM `MinUrl`.`links` WHERE short_url LIKE '%{$shortLink}%' LIMIT 1";
+            $sql = "SELECT * FROM `MinUrl`.`links` WHERE short_url LIKE '{$shortLink}' LIMIT 1";
             $res = $conn->query($sql);
 
             if ($res->num_rows > 0) {

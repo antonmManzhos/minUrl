@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 27.07.2017
- * Time: 11:54
- */
 
 namespace Models;
 
@@ -25,7 +19,7 @@ class VisitorsModel
         if ($conn) {
             $ipAddress = ip2long($ipAddress);
             //$temp = long2ip($ipAddress);
-            $sql = "INSERT INTO `visitors` (`id_url`, `Country`, `City`, `ip_address`,`created_at`) VALUES ({$id_url}, '{$Country}', '{$City}', '{$ipAddress}', NULL)";
+            $sql = "INSERT INTO `visitors` (`id_url`, `Country`, `City`, `ip_address`) VALUES ({$id_url}, '{$Country}', '{$City}', '{$ipAddress}')";
             $conn->query($sql);
         }
     }
@@ -45,7 +39,7 @@ class VisitorsModel
             }
             $arrayResult = array();
             foreach ($arrayCountries as $Country) {
-                $sql = "SELECT COUNT(DISTINCT(ip_address)) as COUNT FROM visitors WHERE id_url = {$id_url} AND Country LIKE '%{$Country}%'";
+                $sql = "SELECT COUNT(DISTINCT(ip_address)) as COUNT FROM visitors WHERE id_url = {$id_url} AND Country LIKE '{$Country}'";
                 if ($result = $conn->query($sql)) {
                     $obj = $result->fetch_object();
                     $arrayResult += ["$Country" => "$obj->COUNT"];

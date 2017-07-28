@@ -1,12 +1,5 @@
 <?php
 
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 27.07.2017
- * Time: 9:39
- */
-
 namespace Helpers;
 
 use Models\LinksModel;

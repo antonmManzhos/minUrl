@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 26.07.2017
- * Time: 10:32
- */
+
 session_start();
 require_once("head.php");
 ?>

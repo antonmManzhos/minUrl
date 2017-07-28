@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 27.07.2017
- * Time: 18:36
- * **/
 
 session_start();
 $statistic = $_SESSION['$statistic'];

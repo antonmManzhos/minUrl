@@ -1,10 +1,5 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: User111
- * Date: 26.07.2017
- * Time: 20:56
- */
+
 if (isset($_SERVER['REQUEST_URI']) && $_SERVER['REQUEST_URI'] != null) {
     $route = $_SERVER['REQUEST_URI'];
     require_once('Controllers\IndexController.php');
